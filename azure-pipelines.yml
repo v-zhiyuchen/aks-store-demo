@@ -53,7 +53,7 @@ stages:
     displayName: Deploy
     pool:
       name: $(vmPoolName)
-    environment: 'vzhiyuchenaksstoredemo.spot'
+    environment: 'dev.spot'
     strategy:
       runOnce:
         deploy:
