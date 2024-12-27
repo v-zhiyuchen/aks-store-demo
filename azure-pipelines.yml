@@ -19,7 +19,7 @@ variables:
   imagePullSecret: 'czyacr08e9-auth'
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  vmPoolName: 'ubuntu-latest'
 
 
 stages:
