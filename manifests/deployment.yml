@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: vzhiyuchenaksstoredemo 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vzhiyuchenaksstoredemo
+  template:
+    metadata:
+      labels:
+        app: vzhiyuchenaksstoredemo 
+    spec:
+      containers:
+        - name: vzhiyuchenaksstoredemo 
+          image: czyacr.azurecr.io/vzhiyuchenaksstoredemo
+          ports:
+          - containerPort: 5001
