@@ -36,7 +36,7 @@ stages:
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: 'deploy'
-              kubernetesServiceConnection: 'akstest-spot'
+              kubernetesServiceConnection: 'dev-akstest-spot-1735878886457'
               namespace: 'spot'
-              manifests: '$(Pipeline.Workspace)/aks-store-all-in-one.yaml'
+              manifests: 'github.com/Azure-Samples/aks-store-demo/blob/main/aks-store-all-in-one.yaml'
 
