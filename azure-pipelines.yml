@@ -39,5 +39,5 @@ stages:
               action: 'deploy'
               kubernetesServiceConnection: 'dev-akstest-spot-1735878886457'
               namespace: 'spot'
-              manifests: '$(Pipeline.Workspace)/manifests/aks-store-all-in-one.yaml'
+              manifests: '$(System.ArtifactsDirectory)/manifests/aks-store-all-in-one.yaml'
 
