@@ -13,7 +13,6 @@ variables:
   dockerRegistryServiceConnection: '119ae78c-3cba-4b06-a76b-8f318ef90d3a'
   imageRepository: 'demo'
   containerRegistry: 'czyacr.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/src/order-service/Dockerfile'
   tag: '$(Build.BuildId)'
 
   # Agent Pool name
@@ -39,5 +38,5 @@ stages:
               action: 'deploy'
               kubernetesServiceConnection: 'akstest-spot'
               namespace: 'spot'
-              manifests: '/aks-store-all-in-one.yaml'
+              manifests: '$(Pipeline.Workspace)/aks-store-all-in-one.yaml'
 
