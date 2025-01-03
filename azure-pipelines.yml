@@ -36,7 +36,8 @@ stages:
             inputs:
               connection: 'v-zhiyuchen'
               userRepository: 'aks-store-demo'
-              defaultVersionType: 'latest'
+              defaultVersionType: 'specificTag'
+              version: 'test'
               downloadPath: '$(Pipeline.Workspace)'
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
