@@ -32,13 +32,13 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: DownloadGitHubRelease@0
+          - task: Bash@3
             inputs:
-              connection: 'v-zhiyuchen'
-              userRepository: 'aks-store-demo'
-              defaultVersionType: 'specificTag'
-              version: 'new'
-              downloadPath: '$(Pipeline.Workspace)'
+              targetType: 'inline'
+              script: |
+                mkdir -p $(Pipeline.Workspace)/manifests
+                
+                curl -o $(Pipeline.Workspace)/manifests/aks-store-all-in-one.yaml https://raw.githubusercontent.com/v-zhiyuchen/aks-store-demo/refs/heads/main/aks-store-all-in-one.yaml
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
             inputs:
