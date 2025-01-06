@@ -39,11 +39,17 @@ stages:
                 mkdir -p $(Pipeline.Workspace)/manifests
                 
                 curl -o $(Pipeline.Workspace)/manifests/aks-store-all-in-one.yaml https://raw.githubusercontent.com/v-zhiyuchen/aks-store-demo/refs/heads/main/aks-store-all-in-one.yaml
+          # - task: KubernetesManifest@0
+          #   displayName: Deploy to Kubernetes cluster
+          #   inputs:
+          #     action: 'deploy'
+          #     kubernetesServiceConnection: 'dev-akstest-spot-1735878886457'
+          #     namespace: 'spot'
+          #     manifests: '$(Pipeline.Workspace)/manifests/aks-store-all-in-one.yaml'
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
             inputs:
-              action: 'deploy'
+              action: 'delete'
               kubernetesServiceConnection: 'dev-akstest-spot-1735878886457'
               namespace: 'spot'
-              manifests: '$(Pipeline.Workspace)/manifests/aks-store-all-in-one.yaml'
-
+              arguments: '-f $(Pipeline.Workspace)/manifests/aks-store-all-in-one.yaml'
